@@ -2,7 +2,7 @@
 
 ProblemResult Problem_002::solve()
 {
-	std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
+	CLOCK::time_point start = CLOCK::now();
 
 	size_t sum = 0, first = 0, second = 1, fibonacci_number;
 
@@ -11,7 +11,7 @@ ProblemResult Problem_002::solve()
 		fibonacci_number = first + second;
 
 		if (fibonacci_number > 4000000)
-			return ProblemResult(2, std::chrono::high_resolution_clock::now() - start, sum);
+			return ProblemResult(2, CLOCK::now() - start, sum);
 
 		first = second;
 		second = fibonacci_number;

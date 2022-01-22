@@ -11,7 +11,7 @@
 class Utils
 {
 public:
-	static double ns_to_ms(std::chrono::high_resolution_clock::duration ns)
+	static double ns_to_ms(CLOCK::duration ns)
 	{
 		return ns.count() / NANOSECONDS_IN_SECOND;
 	}

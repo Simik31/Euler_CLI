@@ -3,9 +3,11 @@
 
 #include <chrono>
 
+#include "Definitions.h"
+
 struct ProblemResult {
 	int problem_id;
-	std::chrono::high_resolution_clock::duration time;
+	CLOCK::duration time;
 	size_t result;
 };
 

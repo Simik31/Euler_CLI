@@ -40,5 +40,6 @@
 #define COLOR_YELLOW       14
 #define COLOR_WHITE        15
 
+#define CLOCK std::chrono::high_resolution_clock
 
 #endif // DEFINITIONS_H

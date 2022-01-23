@@ -18,6 +18,7 @@ struct IProblem {
 class Problem_001 PROBLEM
 class Problem_002 PROBLEM
 class Problem_003 PROBLEM
+class Problem_004 PROBLEM
 
 #endif // PROBLEMS_H
 

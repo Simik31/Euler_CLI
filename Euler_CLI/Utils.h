@@ -33,23 +33,23 @@ namespace utils
 
 	namespace print
 	{
-		static void problem_result(ProblemResult res)
+		static void problem_result(const ProblemResult& res)
 		{
 			printf("--- Problem %03d --- \n", res.problem_id);
 			printf("    Result: %zu\n", res.result);
 			printf("    Time:   %.6fs\n", utils::convert::ns_to_ms(res.time));
 		}
 
-		static void error(std::string message, bool error_wrap = true)
+		static void error(const std::string& message)
 		{
 			utils::console::set_color(COLOR_RED, COLOR_BLACK);
-			if (error_wrap) std::cerr << "--- ERROR---" << std::endl;
+			std::cerr << "--- ERROR ---" << std::endl;
 			std::cerr << message << std::endl;
-			if (error_wrap) std::cerr << "--- ERROR---" << std::endl;
+			std::cerr << "--- ERROR ---" << std::endl;
 			utils::console::reset_color();
 		}
 
-		static void usage(const std::string exe) {
+		static void usage(const std::string& exe) {
 			std::cerr <<
 				"NAME:\n" <<
 				"    " << NAME << " by " << ME << " / " << GITHUB_BASE_URL << ME << " / " << ME << EMAIL_DOMAIN << "\n" <<

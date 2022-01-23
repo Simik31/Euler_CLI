@@ -1,8 +1,8 @@
+#include <conio.h>
 #include <iostream>
 
 #include "CmdArguments.h"
 #include "ProblemFactory.h"
-#include "Usage.h"
 #include "Utils.h"
 
 void run(CmdArguments& args);
@@ -16,6 +16,8 @@ ProblemFactory problemFactory;
 
 int main(const int argc, const char *argv[])
 {
+    CLOCK::time_point start = CLOCK::now();
+
     CmdArguments args(argc, argv);
 
     args.next(exe); // For Usage
@@ -27,9 +29,13 @@ int main(const int argc, const char *argv[])
     else if (command == COMMAND_TEST_LONG || command == COMMAND_TEST_SHORT) test();
     else
     {
-        Utils::print_error("Command '" + command + "' not recognized.");
-        Usage(exe.c_str());
+        utils::print::error("Command '" + command + "' not recognized.");
+        utils::print::usage(exe);
     }
+
+    std::cout << "Program execution time: " << utils::convert::ns_to_ms(CLOCK::now() - start) << " seconds" << std::endl;
+    std::cout << "Press any key to close this window..." << std::flush;
+    _getch();
 
     return EXIT_SUCCESS;
 }
@@ -43,14 +49,14 @@ void run(CmdArguments& args)
     else if (subcommand == SUBCOMMAND_RUN_ID) run_id(args);
     else
     {
-        Utils::print_error("RUN subcommand '" + subcommand + "' not recognized.");
-        Usage(exe.c_str());
+        utils::print::error("RUN subcommand '" + subcommand + "' not recognized.");
+        utils::print::usage(exe);
     }
 }
 
 void run_all()
 {
-    for (int id : problemFactory.get_problem_ids()) Utils::print_problem_result(problemFactory.get_problem(id)->solve());
+    for (int id : problemFactory.get_problem_ids()) utils::print::problem_result(problemFactory.get_problem(id)->solve());
 }
 
 void run_id(CmdArguments& args)
@@ -58,19 +64,19 @@ void run_id(CmdArguments& args)
     std::string id_string;
     if (args.next(id_string) == false)
     {
-        Utils::print_error("RUN --id <id>\n         ^~~~ not present.");
-        Usage(exe.c_str());
+        utils::print::error("RUN --id <id>\n         ^~~~ not present.");
+        utils::print::usage(exe);
     }
 
     try
     {
         int id = std::stoi(id_string);
-        Utils::print_problem_result(problemFactory.get_problem(id)->solve());
+        utils::print::problem_result(problemFactory.get_problem(id)->solve());
     }
     catch (std::exception& exception)
     {
-        Utils::print_error("string -> int partsing error: " + std::string{ exception.what() });
-        Usage(exe.c_str());
+        utils::print::error("string -> int partsing error: " + std::string{ exception.what() });
+        utils::print::usage(exe);
     }
 }
 

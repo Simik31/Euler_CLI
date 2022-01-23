@@ -146,13 +146,13 @@
     <ClCompile Include="ProblemFactory.cpp" />
     <ClCompile Include="Problem_001.cpp" />
     <ClCompile Include="Problem_002.cpp" />
+    <ClCompile Include="Problem_003.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdArguments.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="ProblemFactory.h" />
     <ClInclude Include="Problems.h" />
-    <ClInclude Include="Usage.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

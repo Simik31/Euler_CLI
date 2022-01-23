@@ -4,13 +4,12 @@
 #include <string>
 #include <vector>
 
-#include "Usage.h"
+#include "Utils.h"
 
 class CmdArguments
 {
 public:
 	CmdArguments(const int argc, const char* argv[]);
-	void skip();
 	bool next(std::string& arg);
 private:
 	int index, argc;

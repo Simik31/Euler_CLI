@@ -15,8 +15,9 @@ struct IProblem {
 	virtual ProblemResult solve() = 0;
 };
 
-class Problem_001 : public IProblem { public: ProblemResult solve(); };
-class Problem_002 : public IProblem { public: ProblemResult solve(); };
+class Problem_001 PROBLEM
+class Problem_002 PROBLEM
+class Problem_003 PROBLEM
 
 #endif // PROBLEMS_H
 

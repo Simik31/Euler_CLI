@@ -2,18 +2,13 @@
 
 CmdArguments::CmdArguments(const int argc, const char* argv[])
 {
-	if (argc < 2) Usage{ argv[0] };
+	if (argc < 2) utils::print::usage(std::string(argv[0]));
 
 	this->index = 0;
 	this->argc = argc;
 
 	for (int a = 0; a < argc; a++)
-		this->args.push_back(std::string{ argv[a] });
-}
-
-void CmdArguments::skip()
-{
-	this->index++;
+		this->args.push_back(std::string(argv[a]));
 }
 
 bool CmdArguments::next(std::string& arg)

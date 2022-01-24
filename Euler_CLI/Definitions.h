@@ -41,6 +41,6 @@
 #define COLOR_WHITE        15
 
 #define CLOCK std::chrono::high_resolution_clock
-#define PROBLEM : public IProblem { public: ProblemResult solve(); };
+#define PROBLEM(name) class name : public IProblem { public: ProblemResult solve(); };
 
 #endif // DEFINITIONS_H

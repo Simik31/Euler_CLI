@@ -15,10 +15,11 @@ struct IProblem {
 	virtual ProblemResult solve() = 0;
 };
 
-class Problem_001 PROBLEM
-class Problem_002 PROBLEM
-class Problem_003 PROBLEM
-class Problem_004 PROBLEM
+PROBLEM(Problem_001)
+PROBLEM(Problem_002)
+PROBLEM(Problem_003)
+PROBLEM(Problem_004)
+PROBLEM(Problem_005)
 
 #endif // PROBLEMS_H
 

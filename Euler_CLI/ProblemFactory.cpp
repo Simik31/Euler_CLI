@@ -6,6 +6,7 @@ ProblemFactory::ProblemFactory()
 	this->itop.insert(std::make_pair(2, new Problem_002()));
 	this->itop.insert(std::make_pair(3, new Problem_003()));
 	this->itop.insert(std::make_pair(4, new Problem_004()));
+	this->itop.insert(std::make_pair(5, new Problem_005()));
 }
 
 ProblemFactory::~ProblemFactory()

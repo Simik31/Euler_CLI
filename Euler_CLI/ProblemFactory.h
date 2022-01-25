@@ -17,7 +17,7 @@ public:
 	std::vector<int> get_problem_ids();
 
 private:
-	std::map<int, IProblem*> itop;
+	std::map<int, IProblem*> problem_map;
 };
 
 #endif // PROBLEMFACTORY_H

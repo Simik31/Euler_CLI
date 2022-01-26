@@ -87,7 +87,7 @@ namespace utils
 			return true;
 		}
 
-		static size_t biggestPrimeDivisor(size_t n)
+		static size_t get_biggest_prime_divisor(size_t n)
 		{
 			for (size_t number = 2; number < std::sqrt(n); number++) if (n % number == 0) n /= number;
 			return n;

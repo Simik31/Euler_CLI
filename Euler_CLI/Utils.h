@@ -72,10 +72,34 @@ namespace utils
 
 	namespace prime
 	{
+		static bool is_prime(size_t number)
+		{
+			if (number == 1)
+				return false;
+
+			if (number == 2)
+				return true;
+
+			for (int i = 2; i <= std::sqrt(number) + 1; i++)
+				if (number % i == 0)
+					return false;
+
+			return true;
+		}
+
 		static size_t biggestPrimeDivisor(size_t n)
 		{
 			for (size_t number = 2; number < std::sqrt(n); number++) if (n % number == 0) n /= number;
 			return n;
+		}
+
+		static size_t get_nth(size_t n)
+		{
+			size_t counter = 0;
+
+			for (size_t i = 2;; i++)
+				if (is_prime(i) && ++counter == n)
+					return i;
 		}
 	}
 }

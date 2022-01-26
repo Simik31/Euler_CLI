@@ -13,5 +13,5 @@ ProblemResult Problem_006::solve()
 
     long result = sum * sum - sum_of_squares;
 
-    return ProblemResult(5, CLOCK::now() - start, result);
+    return ProblemResult(6, CLOCK::now() - start, result);
 }

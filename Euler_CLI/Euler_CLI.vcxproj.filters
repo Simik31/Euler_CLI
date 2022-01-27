@@ -51,9 +51,6 @@
     <ClCompile Include="Problem_008.cpp">
       <Filter>Source Files\Problems</Filter>
     </ClCompile>
-    <ClCompile Include="..\LICENSE.md">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definitions.h">
@@ -71,10 +68,5 @@
     <ClInclude Include="Problems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

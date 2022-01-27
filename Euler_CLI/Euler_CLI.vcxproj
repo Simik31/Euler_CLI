@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\LICENSE.md" />
     <ClCompile Include="CmdArguments.cpp" />
     <ClCompile Include="Euler_CLI.cpp" />
     <ClCompile Include="ProblemFactory.cpp" />
@@ -159,6 +160,9 @@
     <ClInclude Include="ProblemFactory.h" />
     <ClInclude Include="Problems.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

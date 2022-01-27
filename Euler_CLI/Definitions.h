@@ -18,7 +18,7 @@
 #define NANOSECONDS_IN_SECOND 1000000000.0
 
 #define COLOR_BLACK         0
-#define COLOE_DARK_BLUE     1
+#define COLOR_DARK_BLUE     1
 #define COLOR_DARK_GREEN    2
 #define COLOR_DARK_AQUA     3
 #define COLOR_DARK_CYAN     3

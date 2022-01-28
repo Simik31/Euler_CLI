@@ -1,5 +1,4 @@
 #include "Problems.h"
-#include <iostream>
 
 ProblemResult Problem_008::solve()
 {

@@ -40,7 +40,7 @@
 #define COLOR_YELLOW       14
 #define COLOR_WHITE        15
 
-#define CLOCK std::chrono::high_resolution_clock
+#define CLOCK std::chrono::steady_clock
 #define PROBLEM(name) class name : public IProblem { public: ProblemResult solve(); };
 
 #endif // DEFINITIONS_H

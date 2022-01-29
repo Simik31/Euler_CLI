@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Problems.h"
 
 int64_t Problem_011::solve()
@@ -76,4 +78,20 @@ int64_t Problem_011::solve()
     }
 
     return greatest;
+}
+
+int64_t Problem_012::solve()
+{
+    int64_t number = 0, divisor_count = 0;
+
+    for (int64_t add = 1; divisor_count <= 500; add++) {
+        divisor_count = 0;
+        number += add;
+
+        for (int64_t i = 1; i <= std::sqrt(number); i++)
+            if (number % i == 0)
+                divisor_count += 2;
+    }
+
+    return number;
 }

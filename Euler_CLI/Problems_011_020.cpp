@@ -305,3 +305,52 @@ int64_t Problem_017::solve()
 
     return out.length();
 }
+
+int64_t Problem_018::solve()
+{
+    int64_t triangle[PROBLEM_018_TRIANGLE_SIZE][PROBLEM_018_TRIANGLE_SIZE] = {
+        { 75 },
+        { 95, 64 },
+        { 17, 47, 82 },
+        { 18, 35, 87, 10 },
+        { 20,  4, 82, 47, 65 },
+        { 19,  1, 23, 75,  3, 34 }, 
+        { 88,  2, 77, 73,  7, 63, 67 },
+        { 99, 65,  4, 28,  6, 16, 70, 92 }, 
+        { 41, 41, 26, 56, 83, 40, 80, 70, 33 },
+        { 41, 48, 72, 33, 47, 32, 37, 16, 94, 29 },
+        { 53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14 },
+        { 70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57 },
+        { 91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48 },
+        { 63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31 },
+        {  4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 24 }
+    };
+
+    for (int64_t row = PROBLEM_018_TRIANGLE_SIZE - 2; row >= 0; row--)
+        for (int64_t column = 0; column <= row; column++)
+            triangle[row][column] += std::max(triangle[row + 1][column], triangle[row + 1][column + 1]);
+
+    return triangle[0][0];
+}
+
+int64_t Problem_019::solve()
+{
+    int64_t days_in_months[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    int64_t sundays = 0, days_passed = 0;
+
+    for (int64_t year = 1901; year <= 2000; year++)
+    {
+        for (int64_t month = 0; month < 12; month++)
+        {
+            if (days_passed % 7 == 0)
+                sundays++;
+
+            days_passed += days_in_months[month];
+
+            if (month == 1 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+                days_passed++;
+        }
+    }
+
+    return sundays;
+}

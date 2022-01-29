@@ -43,5 +43,6 @@
 #define CLOCK std::chrono::steady_clock
 
 #define PROBLEM_011_GRID_SIZE 20
+#define PROBLEM_018_TRIANGLE_SIZE 15
 
 #endif // DEFINITIONS_H

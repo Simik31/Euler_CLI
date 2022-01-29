@@ -153,6 +153,7 @@
     <ClCompile Include="Problem_007.cpp" />
     <ClCompile Include="Problem_008.cpp" />
     <ClCompile Include="Problem_009.cpp" />
+    <ClCompile Include="Problem_010.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdArguments.h" />

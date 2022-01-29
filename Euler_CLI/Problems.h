@@ -24,6 +24,7 @@ PROBLEM(Problem_006)
 PROBLEM(Problem_007)
 PROBLEM(Problem_008)
 PROBLEM(Problem_009)
+PROBLEM(Problem_010)
 
 #endif // PROBLEMS_H
 

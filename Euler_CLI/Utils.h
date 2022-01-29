@@ -101,6 +101,17 @@ namespace utils
 				if (is_prime(i) && ++counter == n)
 					return i;
 		}
+
+		static std::vector<size_t> get_bellow(size_t max)
+		{
+			std::vector<size_t> primes;
+
+			for (size_t number = 2; number <= max; number++)
+				if (is_prime(number))
+					primes.push_back(number);
+
+			return primes;
+		}
 	}
 }
 

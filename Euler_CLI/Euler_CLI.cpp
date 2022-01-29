@@ -90,9 +90,7 @@ void run_problem(int problem_id, IProblem* problem)
 
     CLOCK::duration duration = CLOCK::now() - start;
 
-    printf("--- Problem %3d --- \n", problem_id);
-    printf("    Result: %zu\n", result);
-    printf("    Time:   %.6fs\n", utils::convert::ns_to_s(duration));
+    printf("Problem %3d | Result: %15zu | Time: %10.6fs\n", problem_id, result, utils::convert::ns_to_s(duration));
 }
 
 void test()

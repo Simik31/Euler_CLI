@@ -30,6 +30,9 @@
     <ClCompile Include="Problems_001_010.cpp">
       <Filter>Source Files\Problems\Problems_001_100</Filter>
     </ClCompile>
+    <ClCompile Include="Problems_011_020.cpp">
+      <Filter>Source Files\Problems\Problems_001_100</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definitions.h">

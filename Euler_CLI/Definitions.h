@@ -42,4 +42,6 @@
 
 #define CLOCK std::chrono::steady_clock
 
+#define PROBLEM_011_GRID_SIZE 20
+
 #endif // DEFINITIONS_H

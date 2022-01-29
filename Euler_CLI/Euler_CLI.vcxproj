@@ -144,6 +144,7 @@
     <ClCompile Include="Euler_CLI.cpp" />
     <ClCompile Include="ProblemFactory.cpp" />
     <ClCompile Include="Problems_001_010.cpp" />
+    <ClCompile Include="Problems_011_020.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdArguments.h" />

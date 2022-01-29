@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Problems">
       <UniqueIdentifier>{7b74b246-98aa-45f7-ab91-86dc68bd6c53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Problems\Problems_001_100">
+      <UniqueIdentifier>{c8e83abc-8ec8-4a5b-8e32-71f47611cd02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Euler_CLI.cpp">
@@ -24,35 +27,8 @@
     <ClCompile Include="ProblemFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Problem_001.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_002.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_003.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_004.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_005.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_006.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_007.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_008.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_009.cpp">
-      <Filter>Source Files\Problems</Filter>
-    </ClCompile>
-    <ClCompile Include="Problem_010.cpp">
-      <Filter>Source Files\Problems</Filter>
+    <ClCompile Include="Problems_001_010.cpp">
+      <Filter>Source Files\Problems\Problems_001_100</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

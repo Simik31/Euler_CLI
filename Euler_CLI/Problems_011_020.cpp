@@ -209,3 +209,22 @@ int64_t Problem_013::solve()
 
     return std::stoll(std::to_string(sum).substr(0, 10));
 }
+
+int64_t Problem_014::solve()
+{
+    int64_t length, longest = -1, longest_start = -1;
+    
+    for (int64_t start = 1; start < 1000000; start += 2) {
+        length = 0;
+
+        for (int64_t number = start; number != 1; length++)
+            number = (number % 2 == 0) ? number / 2 : number * 3 + 1;
+
+        if (length > longest) {
+            longest = length;
+            longest_start = start;
+        }
+    }
+
+    return longest_start;
+}

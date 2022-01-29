@@ -15,6 +15,7 @@ ProblemFactory::ProblemFactory()
 	this->problem_map.insert(std::make_pair(11, new Problem_011()));
 	this->problem_map.insert(std::make_pair(12, new Problem_012()));
 	this->problem_map.insert(std::make_pair(13, new Problem_013()));
+	this->problem_map.insert(std::make_pair(14, new Problem_014()));
 }
 
 ProblemFactory::~ProblemFactory()

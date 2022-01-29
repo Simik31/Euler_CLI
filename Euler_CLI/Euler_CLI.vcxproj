@@ -141,7 +141,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CmdArguments.cpp" />
     <ClCompile Include="Euler_CLI.cpp" />
     <ClCompile Include="ProblemFactory.cpp" />
     <ClCompile Include="Problem_001.cpp" />

@@ -21,9 +21,6 @@
     <ClCompile Include="Euler_CLI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CmdArguments.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ProblemFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

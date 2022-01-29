@@ -12,7 +12,7 @@ namespace utils
 {
 	namespace convert
 	{
-		static double ns_to_ms(CLOCK::duration ns)
+		static double ns_to_s(CLOCK::duration ns)
 		{
 			return ns.count() / NANOSECONDS_IN_SECOND;
 		}
@@ -33,13 +33,6 @@ namespace utils
 
 	namespace print
 	{
-		static void problem_result(const ProblemResult& res)
-		{
-			printf("--- Problem %03d --- \n", res.problem_id);
-			printf("    Result: %zu\n", res.result);
-			printf("    Time:   %.6fs\n", utils::convert::ns_to_ms(res.time));
-		}
-
 		static void error(const std::string& message)
 		{
 			utils::console::set_color(COLOR_RED, COLOR_BLACK);
@@ -72,7 +65,7 @@ namespace utils
 
 	namespace prime
 	{
-		static bool is_prime(size_t number)
+		static bool is_prime(int64_t number)
 		{
 			if (number == 1)
 				return false;
@@ -87,26 +80,28 @@ namespace utils
 			return true;
 		}
 
-		static size_t get_biggest_prime_divisor(size_t n)
+		static int64_t get_biggest_prime_divisor(int64_t n)
 		{
-			for (size_t number = 2; number < std::sqrt(n); number++) if (n % number == 0) n /= number;
+			for (int64_t number = 2; number < std::sqrt(n); number++)
+				if (n % number == 0)
+					n /= number;
 			return n;
 		}
 
-		static size_t get_nth(size_t n)
+		static int64_t get_nth(int64_t n)
 		{
-			size_t counter = 0;
+			int64_t counter = 0;
 
-			for (size_t i = 2;; i++)
+			for (int64_t i = 2;; i++)
 				if (is_prime(i) && ++counter == n)
 					return i;
 		}
 
-		static std::vector<size_t> get_bellow(size_t max)
+		static std::vector<int64_t> get_bellow(int64_t max)
 		{
-			std::vector<size_t> primes;
+			std::vector<int64_t> primes;
 
-			for (size_t number = 2; number <= max; number++)
+			for (int64_t number = 2; number <= max; number++)
 				if (is_prime(number))
 					primes.push_back(number);
 

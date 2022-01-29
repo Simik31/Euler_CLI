@@ -41,6 +41,6 @@
 #define COLOR_WHITE        15
 
 #define CLOCK std::chrono::steady_clock
-#define PROBLEM(name) class name : public IProblem { public: ProblemResult solve(); };
+#define PROBLEM(name) class name : public IProblem { public: int64_t solve(); };
 
 #endif // DEFINITIONS_H

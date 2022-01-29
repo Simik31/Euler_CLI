@@ -1,14 +1,13 @@
 #include "Problems.h"
+#include <string>
 
-ProblemResult Problem_004::solve()
+int64_t Problem_004::solve()
 {
-    int multiple, highest_palindrome = -1;
+    int64_t multiple, highest_palindrome = -1;
     bool isPalindrome;
 
-    CLOCK::time_point start = CLOCK::now();
-
-    for (int number_1 = 999; number_1 >= 100; number_1--) {
-        for (int number_2 = number_1; number_2 >= 100; number_2--) {
+    for (int64_t number_1 = 999; number_1 >= 100; number_1--) {
+        for (int64_t number_2 = number_1; number_2 >= 100; number_2--) {
 
             multiple = number_1 * number_2;
 
@@ -26,5 +25,5 @@ ProblemResult Problem_004::solve()
                 highest_palindrome = multiple;
         }
     }
-    return ProblemResult(4, CLOCK::now() - start, highest_palindrome);
+    return highest_palindrome;
 }

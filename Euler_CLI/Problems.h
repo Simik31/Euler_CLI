@@ -1,30 +1,22 @@
 #ifndef PROBLEMS_H
 #define PROBLEMS_H
 
-#include <chrono>
+#include <stdint.h>
 
 #include "Definitions.h"
 
-struct ProblemResult {
-	int problem_id;
-	CLOCK::duration time;
-	size_t result;
-};
+struct IProblem { virtual int64_t solve() = 0; };
 
-struct IProblem {
-	virtual ProblemResult solve() = 0;
-};
-
-PROBLEM(Problem_001)
-PROBLEM(Problem_002)
-PROBLEM(Problem_003)
-PROBLEM(Problem_004)
-PROBLEM(Problem_005)
-PROBLEM(Problem_006)
-PROBLEM(Problem_007)
-PROBLEM(Problem_008)
-PROBLEM(Problem_009)
-PROBLEM(Problem_010)
+class Problem_001 : public IProblem { public: int64_t solve(); };
+class Problem_002 : public IProblem { public: int64_t solve(); };
+class Problem_003 : public IProblem { public: int64_t solve(); };
+class Problem_004 : public IProblem { public: int64_t solve(); };
+class Problem_005 : public IProblem { public: int64_t solve(); };
+class Problem_006 : public IProblem { public: int64_t solve(); };
+class Problem_007 : public IProblem { public: int64_t solve(); };
+class Problem_008 : public IProblem { public: int64_t solve(); };
+class Problem_009 : public IProblem { public: int64_t solve(); };
+class Problem_010 : public IProblem { public: int64_t solve(); };
 
 #endif // PROBLEMS_H
 

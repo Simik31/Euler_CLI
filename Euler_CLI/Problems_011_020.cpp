@@ -228,3 +228,26 @@ int64_t Problem_014::solve()
 
     return longest_start;
 }
+
+int64_t Problem_015::solve()
+{
+    int64_t paths = 1;
+
+    for (int64_t i = 0; i < 20; i++)
+        paths = (paths * (40 - i)) / (i + 1);
+
+    return paths;
+}
+
+int64_t Problem_016::solve()
+{
+    int64_t sum = 0;
+
+    std::string number = std::to_string(std::pow(2, 1000));
+    number = number.substr(0, number.find('.'));
+
+    for (char ch : number)
+        sum += (int64_t) ch - '0';
+
+    return sum;
+}

@@ -134,7 +134,7 @@ namespace utils
 
 					if (buffer_size >= FACTORIAL_MAX_DIGITS)
 					{
-						print::error("Factorail digit count overflow");
+						print::error("Factorial digit count overflow");
 						exit(EXIT_FAILURE);
 					}
 				}

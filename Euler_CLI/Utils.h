@@ -108,6 +108,55 @@ namespace utils
 			return primes;
 		}
 	}
+
+	// https://www.geeksforgeeks.org/factorial-large-number/
+	namespace factorial
+	{
+		static std::vector<int64_t> get_digits(int64_t n)
+		{
+			int64_t buffer_size = 1, buffer[FACTORIAL_MAX_DIGITS] = { 1 };
+
+			for (int64_t multiplicand = 2; multiplicand <= n; multiplicand++)
+			{
+				int64_t carry = 0;
+
+				for (int64_t buffer_offset = 0; buffer_offset < buffer_size; buffer_offset++)
+				{
+					int64_t product = buffer[buffer_offset] * multiplicand + carry;
+					buffer[buffer_offset] = product % 10;
+					carry = product / 10;
+				}
+
+				while (carry > 0)
+				{
+					buffer[buffer_size] = carry % 10;
+					carry = carry / 10;
+					buffer_size++;
+
+					if (buffer_size >= FACTORIAL_MAX_DIGITS)
+					{
+						print::error("Factorail digit count overflow");
+						exit(EXIT_FAILURE);
+					}
+				}
+			}
+
+			std::vector<int64_t> digits;
+			for (int64_t buffer_offset = buffer_size - 1; buffer_offset >= 0; buffer_offset--)
+				digits.push_back(buffer[buffer_offset]);
+
+			return digits;
+		}
+
+		static std::string get_string(int64_t n)
+		{
+			std::string factorial;
+			for (int digit : get_digits(n))
+				factorial.append(std::to_string(digit));
+
+			return factorial;
+		}
+	}
 }
 
 #endif // UTILS_H

@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Problems.h"
+#include "Utils.h"
 
 int64_t Problem_011::solve()
 {
@@ -328,7 +329,7 @@ int64_t Problem_018::solve()
 
     for (int64_t row = PROBLEM_018_TRIANGLE_SIZE - 2; row >= 0; row--)
         for (int64_t column = 0; column <= row; column++)
-            triangle[row][column] += std::max(triangle[row + 1][column], triangle[row + 1][column + 1]);
+            triangle[row][column] += max(triangle[row + 1][column], triangle[row + 1][column + 1]);
 
     return triangle[0][0];
 }
@@ -353,4 +354,14 @@ int64_t Problem_019::solve()
     }
 
     return sundays;
+}
+
+int64_t Problem_020::solve()
+{
+    int64_t sum = 0;
+
+    for (int64_t digit : utils::factorial::get_digits(100))
+        sum += digit;
+
+    return sum;
 }

@@ -26,6 +26,7 @@ class Problem_016 : public IProblem { public: int64_t solve(); };
 class Problem_017 : public IProblem { public: int64_t solve(); };
 class Problem_018 : public IProblem { public: int64_t solve(); };
 class Problem_019 : public IProblem { public: int64_t solve(); };
+class Problem_020 : public IProblem { public: int64_t solve(); };
 
 #endif // PROBLEMS_H
 

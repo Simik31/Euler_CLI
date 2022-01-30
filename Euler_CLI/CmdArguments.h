@@ -1,5 +1,4 @@
-#ifndef CMDARGUMENTS_H
-#define CMDARGUMENTS_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -33,5 +32,3 @@ private:
 	int index, argc;
 	std::vector<std::string> args;
 };
-
-#endif // CMDARGUMENTS_H

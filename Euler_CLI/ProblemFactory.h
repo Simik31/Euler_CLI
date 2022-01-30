@@ -1,5 +1,4 @@
-#ifndef PROBLEMFACTORY_H
-#define PROBLEMFACTORY_H
+#pragma once
 
 #include <map>
 #include <vector>
@@ -19,5 +18,3 @@ public:
 private:
 	std::map<int, IProblem*> problem_map;
 };
-
-#endif // PROBLEMFACTORY_H

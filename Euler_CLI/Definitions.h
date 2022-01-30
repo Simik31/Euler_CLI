@@ -1,5 +1,4 @@
-#ifndef DEFINITIONS_H
-#define DEFINITIONS_H
+#pragma once
 
 #define NAME            "Euler CLI - Project Euler Problem solution"
 #define ME              "Simik31"
@@ -46,5 +45,3 @@
 
 #define PROBLEM_011_GRID_SIZE 20
 #define PROBLEM_018_TRIANGLE_SIZE 15
-
-#endif // DEFINITIONS_H

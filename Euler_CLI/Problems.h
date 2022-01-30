@@ -1,5 +1,4 @@
-#ifndef PROBLEMS_H
-#define PROBLEMS_H
+#pragma once
 
 #include <stdint.h>
 
@@ -28,7 +27,3 @@ class Problem_018 : public IProblem { public: int64_t solve(); };
 class Problem_019 : public IProblem { public: int64_t solve(); };
 class Problem_020 : public IProblem { public: int64_t solve(); };
 class Problem_021 : public IProblem { public: int64_t solve(); };
-
-#endif // PROBLEMS_H
-
-

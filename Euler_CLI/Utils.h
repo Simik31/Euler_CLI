@@ -1,5 +1,4 @@
-#ifndef UTILS_H
-#define UTILS_H
+#pragma once
 
 #include <chrono>
 #include <iostream>
@@ -109,7 +108,7 @@ namespace utils
 		}
 	}
 
-	// https://www.geeksforgeeks.org/factorial-large-number/
+	// Source: https://www.geeksforgeeks.org/factorial-large-number/ | Edited
 	namespace factorial
 	{
 		static std::vector<int64_t> get_digits(int64_t n)
@@ -158,5 +157,3 @@ namespace utils
 		}
 	}
 }
-
-#endif // UTILS_H

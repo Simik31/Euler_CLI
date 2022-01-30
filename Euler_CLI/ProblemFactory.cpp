@@ -2,26 +2,31 @@
 
 ProblemFactory::ProblemFactory()
 {
-	this->problem_map.insert(std::make_pair( 1, new Problem_001()));
-	this->problem_map.insert(std::make_pair( 2, new Problem_002()));
-	this->problem_map.insert(std::make_pair( 3, new Problem_003()));
-	this->problem_map.insert(std::make_pair( 4, new Problem_004()));
-	this->problem_map.insert(std::make_pair( 5, new Problem_005()));
-	this->problem_map.insert(std::make_pair( 6, new Problem_006()));
-	this->problem_map.insert(std::make_pair( 7, new Problem_007()));
-	this->problem_map.insert(std::make_pair( 8, new Problem_008()));
-	this->problem_map.insert(std::make_pair( 9, new Problem_009()));
-	this->problem_map.insert(std::make_pair(10, new Problem_010()));
-	this->problem_map.insert(std::make_pair(11, new Problem_011()));
-	this->problem_map.insert(std::make_pair(12, new Problem_012()));
-	this->problem_map.insert(std::make_pair(13, new Problem_013()));
-	this->problem_map.insert(std::make_pair(14, new Problem_014()));
-	this->problem_map.insert(std::make_pair(15, new Problem_015()));
-	this->problem_map.insert(std::make_pair(16, new Problem_016()));
-	this->problem_map.insert(std::make_pair(17, new Problem_017()));
-	this->problem_map.insert(std::make_pair(18, new Problem_018()));
-	this->problem_map.insert(std::make_pair(19, new Problem_019()));
-	this->problem_map.insert(std::make_pair(20, new Problem_020()));
+	/* Problems 001 - 010 */ {
+		this->problem_map.insert(std::make_pair( 1, new Problem_001()));
+		this->problem_map.insert(std::make_pair( 2, new Problem_002()));
+		this->problem_map.insert(std::make_pair( 3, new Problem_003()));
+		this->problem_map.insert(std::make_pair( 4, new Problem_004()));
+		this->problem_map.insert(std::make_pair( 5, new Problem_005()));
+		this->problem_map.insert(std::make_pair( 6, new Problem_006()));
+		this->problem_map.insert(std::make_pair( 7, new Problem_007()));
+		this->problem_map.insert(std::make_pair( 8, new Problem_008()));
+		this->problem_map.insert(std::make_pair( 9, new Problem_009()));
+		this->problem_map.insert(std::make_pair(10, new Problem_010()));
+	}
+	/* Problems 011 - 020 */ {
+		this->problem_map.insert(std::make_pair(11, new Problem_011()));
+		this->problem_map.insert(std::make_pair(12, new Problem_012()));
+		this->problem_map.insert(std::make_pair(13, new Problem_013()));
+		this->problem_map.insert(std::make_pair(14, new Problem_014()));
+		this->problem_map.insert(std::make_pair(15, new Problem_015()));
+		this->problem_map.insert(std::make_pair(16, new Problem_016()));
+		this->problem_map.insert(std::make_pair(17, new Problem_017()));
+		this->problem_map.insert(std::make_pair(18, new Problem_018()));
+		this->problem_map.insert(std::make_pair(19, new Problem_019()));
+		this->problem_map.insert(std::make_pair(20, new Problem_020()));
+	}
+
 }
 
 ProblemFactory::~ProblemFactory()

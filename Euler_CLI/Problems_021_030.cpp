@@ -1,4 +1,8 @@
+#include <string>
+#include <vector>
+
 #include "Problems.h"
+#include "Utils.h"
 
 int64_t Problem_021::solve()
 {
@@ -20,4 +24,26 @@ int64_t Problem_021::solve()
     }
 
     return sum;
+}
+
+int64_t Problem_022::solve()
+{
+    std::vector<std::string> lines;
+    std::vector<std::string> names;
+
+    utils::file::read_lines("../data/022.txt", lines);
+
+    std::string data = lines[0];
+
+    utils::string::remove_char(data, '\"');
+    utils::string::split_by_char(data, ",", names);
+    utils::vector::sort(names);
+
+    int64_t value = 0;
+
+    for (int64_t i = 0; i < names.size(); i++)
+        for (char c : names[i])
+            value += ((int64_t)c - '@') * (i + 1);
+
+    return value;
 }

@@ -28,6 +28,7 @@ ProblemFactory::ProblemFactory()
 	}
 	/* Problems 021 - 030 */ {
 		this->problem_map.insert(std::make_pair(21, new Problem_021()));
+		this->problem_map.insert(std::make_pair(22, new Problem_022()));
 	}
 }
 

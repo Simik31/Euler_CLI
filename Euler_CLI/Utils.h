@@ -1,6 +1,8 @@
 #pragma once
 
 #include <chrono>
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <Windows.h>
 
@@ -154,6 +156,59 @@ namespace utils
 				factorial.append(std::to_string(digit));
 
 			return factorial;
+		}
+	}
+
+	namespace string
+	{
+		static void split_by_char(const std::string& str, const char* sep, std::vector<std::string>& strings)
+		{
+			std::string separator{ sep };
+			uint64_t initialPos = 0;
+			uint64_t pos;
+
+			strings.clear();
+
+			while ((pos = str.find(separator, initialPos)) != std::string::npos)
+			{
+				strings.push_back(str.substr(initialPos, pos - initialPos));
+				initialPos = pos + separator.size();
+			}
+
+			strings.push_back(str.substr(initialPos, min(pos, str.size()) - initialPos + 1));
+		}
+
+		static void remove_char(std::string& str, const char to_remove)
+		{
+			str.erase(std::remove(str.begin(), str.end(), to_remove), str.end());
+		}
+	}
+
+	namespace vector
+	{
+		static void sort(std::vector<std::string>& vec)
+		{
+			std::sort(vec.begin(), vec.end());
+		}
+	}
+
+	namespace file
+	{
+		static void read_lines(const std::string& file_path, std::vector<std::string>& lines)
+		{
+			std::ifstream file{ file_path };
+
+			if (!file.is_open())
+			{
+				print::error("File not found or not accessible: " + std::filesystem::absolute(file_path).generic_string());
+				exit(EXIT_FAILURE);
+			}
+
+			lines.clear();
+
+			std::string line;
+			while (getline(file, line))
+				lines.push_back(line);
 		}
 	}
 }

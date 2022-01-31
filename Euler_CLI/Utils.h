@@ -209,6 +209,8 @@ namespace utils
 			std::string line;
 			while (getline(file, line))
 				lines.push_back(line);
+
+			file.close();
 		}
 	}
 }

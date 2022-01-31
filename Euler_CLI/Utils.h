@@ -212,5 +212,21 @@ namespace utils
 
 			file.close();
 		}
+
+		static std::string read_single_line(const std::string& file_path)
+		{
+			std::ifstream file{ file_path };
+
+			if (!file.is_open())
+			{
+				print::error("File not found or not accessible: " + std::filesystem::absolute(file_path).generic_string());
+				exit(EXIT_FAILURE);
+			}
+
+			std::string line;
+			getline(file, line);
+
+			return line;
+		}
 	}
 }

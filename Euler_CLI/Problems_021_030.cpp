@@ -28,14 +28,10 @@ int64_t Problem_021::solve()
 
 int64_t Problem_022::solve()
 {
-    std::vector<std::string> lines;
-    std::vector<std::string> names;
-
-    utils::file::read_lines("../data/022.txt", lines);
-
-    std::string data = lines[0];
-
+    std::string data = utils::file::read_single_line("../data/022.txt");
     utils::string::remove_char(data, '\"');
+
+    std::vector<std::string> names;
     utils::string::split_by_char(data, ",", names);
     utils::vector::sort(names);
 

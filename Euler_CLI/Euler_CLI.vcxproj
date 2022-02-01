@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BigNumber.cpp" />
     <ClCompile Include="Euler_CLI.cpp" />
     <ClCompile Include="ProblemFactory.cpp" />
     <ClCompile Include="Problems_001_010.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Problems_021_030.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigNumber.h" />
     <ClInclude Include="CmdArguments.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="ProblemFactory.h" />

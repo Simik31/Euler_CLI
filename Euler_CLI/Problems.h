@@ -29,3 +29,5 @@ class Problem_020 : public IProblem { public: int64_t solve(); };
 class Problem_021 : public IProblem { public: int64_t solve(); };
 class Problem_022 : public IProblem { public: int64_t solve(); };
 class Problem_023 : public IProblem { public: int64_t solve(); };
+class Problem_024 : public IProblem { public: int64_t solve(); };
+class Problem_025 : public IProblem { public: int64_t solve(); };

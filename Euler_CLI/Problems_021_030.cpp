@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+#include "BigNumber.h"
 #include "Problems.h"
 #include "Utils.h"
 
@@ -71,4 +72,77 @@ int64_t Problem_023::solve()
     }
 
     return sum;
+}
+
+int64_t Problem_024::solve()
+{
+    int64_t counter = 0;
+    std::vector<int64_t> d1 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }, d2, d3, d4, d5, d6, d7, d8;
+
+    for (int64_t i1 = 0; i1 <= 9; i1++) {
+        d2 = std::vector<int64_t>(d1);
+        d2.erase(d2.begin() + i1);
+
+        for (int64_t i2 = 0; i2 <= 8; i2++) {
+            d3 = std::vector<int64_t>(d2);
+            d3.erase(d3.begin() + i2);
+
+            for (int64_t i3 = 0; i3 <= 7; i3++) {
+                d4 = std::vector<int64_t>(d3);
+                d4.erase(d4.begin() + i3);
+
+                for (int64_t i4 = 0; i4 <= 6; i4++) {
+                    d5 = std::vector<int64_t>(d4);
+                    d5.erase(d5.begin() + i4);
+
+                    for (int64_t i5 = 0; i5 <= 5; i5++) {
+                        d6 = std::vector<int64_t>(d5);
+                        d6.erase(d6.begin() + i5);
+
+                        for (int64_t i6 = 0; i6 <= 4; i6++) {
+                            d7 = std::vector<int64_t>(d6);
+                            d7.erase(d7.begin() + i6);
+
+                            for (int64_t i7 = 0; i7 <= 3; i7++) {
+                                d8 = std::vector<int64_t>(d7);
+                                d8.erase(d8.begin() + i7);
+
+                                for (int64_t i8 = 0; i8 <= 2; i8++) {
+                                    counter += 2;
+
+                                    if (counter == 1000000)
+                                        return d1[i1]              * 1000000000 +
+                                               d2[i2]              * 100000000 +
+                                               d3[i3]              * 10000000 + 
+                                               d4[i4]              * 1000000 +
+                                               d5[i5]              * 100000 +
+                                               d6[i6]              * 10000 +
+                                               d7[i7]              * 1000 +
+                                               d8[i8]              * 100 +
+                                               d8[i8 == 2 ? 1 : 2] * 10 +
+                                               d8[i8 == 0 ? 1 : 0];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+int64_t Problem_025::solve()
+{
+    BigNumber first, second(1), new_num;
+    
+    for (int64_t index = 2; ; index++) 
+    {
+        new_num = first + second;
+    
+        if (new_num.get_buffer_pointer() == 1000)
+            return index;
+    
+        first = second;
+        second = new_num;
+    }
 }

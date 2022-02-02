@@ -41,7 +41,5 @@
 
 #define CLOCK std::chrono::steady_clock
 
-#define FACTORIAL_MAX_DIGITS 500 // Biggest possible input is 252! which is using 498 digits
-
 #define PROBLEM_011_GRID_SIZE 20
 #define PROBLEM_018_TRIANGLE_SIZE 15

@@ -146,3 +146,27 @@ int64_t Problem_025::solve()
         second = new_num;
     }
 }
+
+int64_t Problem_026::solve()
+{
+    int64_t result = 0, longest = 0;
+    std::vector<int64_t> arr;
+
+    for (int64_t i = 2; i < 1000; i++) {
+        arr = std::vector<int64_t>(i + 1, 0);
+
+        int64_t index = 1, mod = 1;
+
+        while (mod != 0 && arr[mod] == 0) {
+            arr[mod] = index++;
+            mod = mod * 10 % i;
+        }
+
+        if (index - arr[mod] > longest) {
+            longest = index - arr[mod];
+            result = i;
+        }
+    }
+
+    return result;
+}

@@ -39,6 +39,9 @@
     <ClCompile Include="BigNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Problems_031_040.cpp">
+      <Filter>Source Files\Problems\Problems_001_100</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definitions.h">

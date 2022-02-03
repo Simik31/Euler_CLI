@@ -191,3 +191,19 @@ int64_t Problem_027::solve()
 
     return result;
 }
+
+int64_t Problem_028::solve()
+{
+    int64_t total = 0, layer = 0, counter = 3;
+
+    for (int64_t number = 1; number <= 1002001; number += 2 * layer) {
+        total += number;
+
+        if (++counter == 4) {
+            counter = 0;
+            layer++;
+        }
+    }
+
+    return total;
+}

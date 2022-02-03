@@ -1,3 +1,4 @@
+#include <set>
 #include <string>
 #include <vector>
 
@@ -206,4 +207,15 @@ int64_t Problem_028::solve()
     }
 
     return total;
+}
+
+int64_t Problem_029::solve()
+{
+    std::set<double> powers;
+
+    for (uint64_t a = 2; a <= 100; a++)
+        for (uint64_t b = 2; b <= 100; b++)
+            powers.insert(std::pow(a, b));
+
+    return powers.size();
 }

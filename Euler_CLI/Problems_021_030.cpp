@@ -170,3 +170,24 @@ int64_t Problem_026::solve()
 
     return result;
 }
+
+int64_t Problem_027::solve()
+{
+    int64_t result = -1, max_n = 0, n;
+
+    for (int64_t a = -999; a < 1000; a += 2) {
+        for (int64_t b = -1000; b <= 1000; b++) {
+            n = 0;
+
+            while (utils::prime::is_prime(std::abs(n * n + a * n + b)))
+                n++;
+
+            if (n > max_n) {
+                result = a * b;
+                max_n = n;
+            }
+        }
+    }
+
+    return result;
+}

@@ -219,3 +219,24 @@ int64_t Problem_029::solve()
 
     return powers.size();
 }
+
+int64_t Problem_030::solve()
+{
+    int64_t total = 0, num_tot, num_copy;
+
+    for (int64_t number = 2; number < 200000; number++) {
+        num_copy = number;
+        num_tot = 0;
+
+        while (num_copy)
+        {
+            num_tot += std::pow(num_copy % 10, 5);
+            num_copy /= 10;
+        }
+
+        if (num_tot == number)
+            total += number;
+    }
+
+    return total;
+}

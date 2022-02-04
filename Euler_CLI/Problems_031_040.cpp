@@ -92,3 +92,22 @@ int64_t Problem_034::solve()
 
     return total;
 }
+
+int64_t Problem_035::solve()
+{
+    int64_t counter = 0;
+    std::string s_num;
+
+    for (int64_t num = 2; num < 1000001; num++) {
+        s_num = std::to_string(num);
+
+        bool arePrime = true;
+        for (int64_t i = 0; arePrime && i < s_num.length(); i++)
+            arePrime = utils::prime::is_prime(std::stoll(s_num.substr(i) + s_num.substr(0, i)));
+
+        if (arePrime)
+            counter++;
+    }
+
+    return counter;
+}

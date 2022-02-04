@@ -52,3 +52,23 @@ int64_t Problem_032::solve()
 
     return result;
 }
+
+int64_t Problem_033::solve()
+{
+    int64_t dp = 1, np = 1, gcd = 1;
+
+    for (int64_t c = 1; c < 10; c++)
+        for (int64_t d = 1; d < c; d++)
+            for (int64_t n = 1; n < d; n++)
+                if ((n * 10 + c) * d == (c * 10 + d) * n) 
+                {
+                    np *= n;
+                    dp *= d;
+                }
+
+    for (int64_t i = 1; i <= np; i++)
+        if (np % i == 0 && dp % i == 0)
+            gcd = i;
+
+    return dp / gcd;
+}

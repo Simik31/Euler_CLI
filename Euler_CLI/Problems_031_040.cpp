@@ -1,3 +1,6 @@
+#include <set>
+#include <string>
+
 #include "Problems.h"
 
 int64_t Problem_031::solve()
@@ -14,4 +17,38 @@ int64_t Problem_031::solve()
                                 sum++;
 
     return sum;
+}
+
+int64_t Problem_032::solve()
+{
+    std::set<int64_t> set;
+    int64_t result = 0, mult;
+
+    for (int64_t a = 1; a < 10000 + 1; a++)
+    {
+        for (int64_t b = 1; b < (10000 / a) + 1; b++)
+        {
+            mult = a * b;
+
+            if (set.contains(mult))
+                continue;
+
+            std::string whole_number = std::to_string(a) + std::to_string(b) + std::to_string(mult);
+
+            if (whole_number.length() != 9 || whole_number.find("0") != std::string::npos)
+                continue;
+
+            bool fail = false;
+            for (int i = 1; !fail && i < 10; i++)
+                fail = whole_number.find(i + '0') == std::string::npos;
+
+            if (fail)
+                continue;
+
+            set.insert(mult);
+            result += mult;
+        }
+    }
+
+    return result;
 }

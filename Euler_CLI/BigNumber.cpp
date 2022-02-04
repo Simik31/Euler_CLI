@@ -27,7 +27,7 @@ BigNumber::BigNumber(const uint64_t& value)
 BigNumber::BigNumber(const BigNumber& other)
 {
 	for (int64_t buffer_offset = 0; buffer_offset < other.buffer_pointer; buffer_offset++)
-		this->buffer[buffer_pointer++] = other.buffer[buffer_offset];
+		this->buffer[this->buffer_pointer++] = other.buffer[buffer_offset];
 }
 
 BigNumber BigNumber::operator+(const BigNumber& other)

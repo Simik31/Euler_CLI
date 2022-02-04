@@ -181,4 +181,22 @@ namespace utils
 			return line;
 		}
 	}
+
+	namespace factorial
+	{
+		static BigNumber get_BigNumber(uint64_t value)
+		{
+			BigNumber fact(1);
+
+			for (int64_t multiplicand = 2; multiplicand <= value; multiplicand++)
+				fact = fact * multiplicand;
+
+			return fact;
+		}
+
+		static uint64_t get_uint64(uint64_t value)
+		{
+			return get_BigNumber(value).get_value();
+		}
+	}
 }

@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Problems.h"
+#include "Utils.h"
 
 int64_t Problem_031::solve()
 {
@@ -71,4 +72,23 @@ int64_t Problem_033::solve()
             gcd = i;
 
     return dp / gcd;
+}
+
+int64_t Problem_034::solve()
+{
+    int64_t total = 0;
+
+    for (int64_t num = 3; num < 41000; num++) 
+    {
+        std::string s_num = std::to_string(num);
+        int64_t f_sum = 0;
+
+        for (int64_t i = 0; num > f_sum && i < s_num.length(); i++)
+            f_sum += utils::factorial::get_uint64((uint64_t) s_num[i] - '0');
+
+        if (num == f_sum)
+            total += num;
+    }
+
+    return total;
 }

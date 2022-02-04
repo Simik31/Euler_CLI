@@ -371,7 +371,7 @@ int64_t Problem_020::solve()
         fact = fact * multiplicand;
 
     int64_t sum = 0;
-    for (uint64_t digit : fact.get_buffer())
+    for (uint64_t digit : utils::factorial::get_BigNumber(100).get_buffer())
         sum += digit;
 
     return sum;

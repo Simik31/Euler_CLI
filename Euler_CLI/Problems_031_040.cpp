@@ -122,3 +122,28 @@ int64_t Problem_036::solve()
 
     return sum;
 }
+
+int64_t Problem_037::solve()
+{
+    int64_t sum = 0, counter = 0;
+
+    for (int64_t num = 11; counter < 11; num++)
+    {
+        if (utils::prime::is_prime(num))
+        {
+            std::string s_num = std::to_string(num);
+            bool arePrime = true;
+
+            for (int64_t i = 0; arePrime && i < s_num.length() - 1; i++)
+                arePrime = utils::prime::is_prime(std::stoll(s_num.substr(0, i + 1))) && utils::prime::is_prime(std::stoll(s_num.substr(i + 1, s_num.length() - i)));
+
+            if (arePrime)
+            {
+                sum += num;
+                counter++;
+            }
+        }
+    }
+
+    return sum;
+}

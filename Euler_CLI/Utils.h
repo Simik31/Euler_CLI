@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <stack>
 #include <Windows.h>
 
 #include "BigNumber.h"
@@ -197,6 +198,40 @@ namespace utils
 		static uint64_t get_uint64(uint64_t value)
 		{
 			return get_BigNumber(value).get_value();
+		}
+	}
+
+	namespace bin
+	{
+		static std::string dec_to_bin(uint64_t decimal)
+		{
+			std::stack<char> buffer;
+
+			while (decimal)
+			{
+				buffer.push(decimal % 2 + '0');
+				decimal /= 2;
+			}
+
+			std::string result;
+			while (buffer.empty() == false)
+			{
+				result += buffer.top();
+				buffer.pop();
+			}
+
+			return result;
+		}
+	}
+
+	namespace palindrom
+	{
+		static bool is_palindromic(std::string number)
+		{
+			for (int64_t i = 0; i < number.length() / 2; i++)
+				if (number[i] != number[number.length() - i - 1])
+					return false;
+			return true;
 		}
 	}
 }

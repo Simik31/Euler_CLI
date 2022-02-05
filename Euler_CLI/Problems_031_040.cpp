@@ -111,3 +111,14 @@ int64_t Problem_035::solve()
 
     return counter;
 }
+
+int64_t Problem_036::solve()
+{
+    int64_t sum = 0;
+
+    for (int64_t num = 1; num < 1000001; num++)
+        if (utils::palindrom::is_palindromic(std::to_string(num)) && utils::palindrom::is_palindromic(utils::bin::dec_to_bin(num)))
+            sum += num;
+
+    return sum;
+}

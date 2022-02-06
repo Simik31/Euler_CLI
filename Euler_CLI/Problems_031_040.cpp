@@ -147,3 +147,29 @@ int64_t Problem_037::solve()
 
     return sum;
 }
+
+int64_t Problem_038::solve()
+{
+    int64_t biggest = 0;
+
+    for (int64_t number = 1; number < 10000; number++) {
+        std::string product;
+        std::set<char> seen;
+
+        for (int64_t i = 1; product.length() < 9; i++) {
+            std::string mul = std::to_string(number * i);
+            product += mul;
+
+            if (product.find("0") != std::string::npos)
+                break;
+
+            for (char c : mul)
+                seen.insert(c);
+        }
+
+        if (seen.size() == 9 && product.length() == 9 && std::stoll(product) > biggest)
+            biggest = std::stoll(product);
+    }
+
+    return biggest;
+}

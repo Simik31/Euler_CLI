@@ -173,3 +173,26 @@ int64_t Problem_038::solve()
 
     return biggest;
 }
+
+int64_t Problem_039::solve()
+{
+    int64_t max = 0, max_count = 0, counter;
+
+    for (int64_t p = 1; p < 1001; p++)
+    {
+        counter = 0;
+
+        for (int64_t a = 1; a < 400; a++)
+            for (int64_t b = 1; b < 400; b++)
+                if (a + b + std::sqrt(a * a + b * b) == p)
+                    counter++;
+
+        if (counter > max_count)
+        {
+            max = p;
+            max_count = counter;
+        }
+    }
+
+    return max;
+}

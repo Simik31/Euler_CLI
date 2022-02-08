@@ -200,17 +200,18 @@ int64_t Problem_039::solve()
 int64_t Problem_040::solve()
 {
     std::string number;
+    int64_t result = 1, pos = 0;
 
     for (int64_t i = 1; number.length() < 1000000; i++)
+    {
         number += std::to_string(i);
 
-    int64_t d1 = number[0] - '0',
-        d10 = number[9] - '0',
-        d100 = number[99] - '0',
-        d1000 = number[999] - '0',
-        d10000 = number[9999] - '0',
-        d100000 = number[99999] - '0',
-        d1000000 = number[999999] - '0';
-        
-    return d1 * d10 * d100 * d1000 * d10000 * d100000 * d1000000;
+        if (number.size() > pos)
+        {
+            result *= number[pos] - '0';
+            pos = pos * 10 + 9;
+        }
+    }
+
+    return result;
 }

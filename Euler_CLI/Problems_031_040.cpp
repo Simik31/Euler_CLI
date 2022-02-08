@@ -206,7 +206,7 @@ int64_t Problem_040::solve()
     {
         number += std::to_string(i);
 
-        if (number.size() > pos)
+        if (number.length() > pos)
         {
             result *= number[pos] - '0';
             pos = pos * 10 + 9;

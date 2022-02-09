@@ -50,6 +50,9 @@ ProblemFactory::ProblemFactory()
 		this->problem_map.insert(std::make_pair(39, new Problem_039()));
 		this->problem_map.insert(std::make_pair(40, new Problem_040()));
 	}
+	/* Problems 031 - 040 */ {
+		this->problem_map.insert(std::make_pair(41, new Problem_041()));
+	}
 }
 
 ProblemFactory::~ProblemFactory()

@@ -139,9 +139,16 @@ namespace utils
 
 	namespace vector
 	{
-		static void sort(std::vector<std::string>& vec)
+		template<typename T>
+		static void sort(std::vector<T>& vec)
 		{
 			std::sort(vec.begin(), vec.end());
+		}
+
+		template<typename T>
+		static bool contains(const std::vector<T>& vec, const T& digit)
+		{
+			return std::find(vec.begin(), vec.end(), digit) != vec.end();
 		}
 	}
 
@@ -232,6 +239,22 @@ namespace utils
 				if (number[i] != number[number.length() - i - 1])
 					return false;
 			return true;
+		}
+	}
+
+	namespace number
+	{
+		static std::vector<int64_t> get_digits(int64_t number)
+		{
+			std::vector<int64_t> digits;
+
+			while (number)
+			{
+				digits.push_back(number % 10);
+				number /= 10;
+			}
+
+			return digits;
 		}
 	}
 }

@@ -42,6 +42,9 @@
     <ClCompile Include="Problems_031_040.cpp">
       <Filter>Source Files\Problems\Problems_001_100</Filter>
     </ClCompile>
+    <ClCompile Include="Problems_041_050.cpp">
+      <Filter>Source Files\Problems\Problems_001_100</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definitions.h">

@@ -148,6 +148,7 @@
     <ClCompile Include="Problems_011_020.cpp" />
     <ClCompile Include="Problems_021_030.cpp" />
     <ClCompile Include="Problems_031_040.cpp" />
+    <ClCompile Include="Problems_041_050.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigNumber.h" />

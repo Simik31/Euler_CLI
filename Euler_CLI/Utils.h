@@ -146,9 +146,9 @@ namespace utils
 		}
 
 		template<typename T>
-		static bool contains(const std::vector<T>& vec, const T& digit)
+		static bool contains(const std::vector<T>& vec, const T& find)
 		{
-			return std::find(vec.begin(), vec.end(), digit) != vec.end();
+			return std::find(vec.begin(), vec.end(), find) != vec.end();
 		}
 	}
 
@@ -185,6 +185,8 @@ namespace utils
 
 			std::string line;
 			getline(file, line);
+
+			file.close();
 
 			return line;
 		}
@@ -255,6 +257,11 @@ namespace utils
 			}
 
 			return digits;
+		}
+
+		static int64_t get_triangle_number(const int64_t& number)
+		{
+			return number * (number + 1) / 2;
 		}
 	}
 }

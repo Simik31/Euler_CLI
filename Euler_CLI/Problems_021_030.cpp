@@ -34,7 +34,7 @@ int64_t Problem_022::solve()
     utils::string::remove_char(data, '\"');
 
     std::vector<std::string> names;
-    utils::string::split_by_char(data, ",", names);
+    utils::string::split_by_char(data, ',', names);
     utils::vector::sort(names);
 
     int64_t value = 0;
@@ -180,7 +180,7 @@ int64_t Problem_027::solve()
         for (int64_t b = -1000; b <= 1000; b++) {
             n = 0;
 
-            while (utils::prime::is_prime(std::abs(n * n + a * n + b)))
+            while (utils::number::is_prime(std::abs(n * n + a * n + b)))
                 n++;
 
             if (n > max_n) {

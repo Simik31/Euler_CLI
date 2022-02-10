@@ -8,7 +8,7 @@ int64_t Problem_041::solve()
 {
     for (int64_t num = 7654321;; num--)
     {
-        if (utils::prime::is_prime(num) == false)
+        if (utils::number::is_prime(num) == false)
             continue;
 
         std::vector<int64_t> digits = utils::number::get_digits(num);
@@ -40,7 +40,7 @@ int64_t Problem_042::solve()
         triangle_numbers.push_back(utils::number::get_triangle_number(n));
 
     std::vector<std::string> words;
-    utils::string::split_by_char(utils::file::read_single_line("../data/042.txt"), ",", words);
+    utils::string::split_by_char(utils::file::read_single_line("../data/042.txt"), ',', words);
 
     for (std::string word : words)
     {

@@ -23,14 +23,14 @@ namespace utils
 
 	namespace console
 	{
-		static void set_color(int foreground, int background)
+		static void set_color(const int64_t& foreground, const int64_t& background)
 		{
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), foreground + 16 * background);
 		}
 
 		static void reset_color()
 		{
-			utils::console::set_color(COLOR_DARK_WHITE, COLOR_BLACK);
+			set_color(COLOR_DARK_WHITE, COLOR_BLACK);
 		}
 	}
 
@@ -66,72 +66,24 @@ namespace utils
 		}
 	}
 
-	namespace prime
-	{
-		static bool is_prime(int64_t number)
-		{
-			if (number == 1)
-				return false;
-
-			if (number == 2)
-				return true;
-
-			for (int i = 2; i <= std::sqrt(number) + 1; i++)
-				if (number % i == 0)
-					return false;
-
-			return true;
-		}
-
-		static int64_t get_biggest_prime_divisor(int64_t n)
-		{
-			for (int64_t number = 2; number < std::sqrt(n); number++)
-				if (n % number == 0)
-					n /= number;
-			return n;
-		}
-
-		static int64_t get_nth(int64_t n)
-		{
-			int64_t counter = 0;
-
-			for (int64_t i = 2;; i++)
-				if (is_prime(i) && ++counter == n)
-					return i;
-		}
-
-		static std::vector<int64_t> get_bellow(int64_t max)
-		{
-			std::vector<int64_t> primes;
-
-			for (int64_t number = 2; number <= max; number++)
-				if (is_prime(number))
-					primes.push_back(number);
-
-			return primes;
-		}
-	}
-
 	namespace string
 	{
-		static void split_by_char(const std::string& str, const char* sep, std::vector<std::string>& strings)
+		static void split_by_char(const std::string& str, const char& sep, std::vector<std::string>& strings)
 		{
-			std::string separator{ sep };
-			uint64_t initialPos = 0;
-			uint64_t pos;
+			uint64_t offset_pos = 0, pos;
 
 			strings.clear();
 
-			while ((pos = str.find(separator, initialPos)) != std::string::npos)
+			while ((pos = str.find(sep, offset_pos)) != std::string::npos)
 			{
-				strings.push_back(str.substr(initialPos, pos - initialPos));
-				initialPos = pos + separator.size();
+				strings.push_back(str.substr(offset_pos, pos - offset_pos));
+				offset_pos = pos + 1;
 			}
 
-			strings.push_back(str.substr(initialPos, min(pos, str.size()) - initialPos + 1));
+			strings.push_back(str.substr(offset_pos, min(pos, str.size()) - offset_pos + 1));
 		}
 
-		static void remove_char(std::string& str, const char to_remove)
+		static void remove_char(std::string& str, const char& to_remove)
 		{
 			str.erase(std::remove(str.begin(), str.end(), to_remove), str.end());
 		}
@@ -192,26 +144,45 @@ namespace utils
 		}
 	}
 
-	namespace factorial
+	namespace number
 	{
-		static BigNumber get_BigNumber(uint64_t value)
+		static bool is_palindromic(const std::string& num_str)
 		{
-			BigNumber fact(1);
+			for (int64_t i = 0; i < num_str.length() / 2; i++)
+				if (num_str[i] != num_str[num_str.length() - i - 1])
+					return false;
 
-			for (int64_t multiplicand = 2; multiplicand <= value; multiplicand++)
-				fact = fact * multiplicand;
-
-			return fact;
+			return true;
 		}
 
-		static uint64_t get_uint64(uint64_t value)
+		static bool is_prime(const int64_t& number)
 		{
-			return get_BigNumber(value).get_value();
-		}
-	}
+			if (number == 1)
+				return false;
 
-	namespace bin
-	{
+			if (number == 2)
+				return true;
+
+			for (int i = 2; i <= std::sqrt(number) + 1; i++)
+				if (number % i == 0)
+					return false;
+
+			return true;
+		}
+
+		static std::vector<int64_t> get_digits(int64_t number)
+		{
+			std::vector<int64_t> digits;
+
+			while (number)
+			{
+				digits.push_back(number % 10);
+				number /= 10;
+			}
+
+			return digits;
+		}
+
 		static std::string dec_to_bin(uint64_t decimal)
 		{
 			std::stack<char> buffer;
@@ -231,37 +202,49 @@ namespace utils
 
 			return result;
 		}
-	}
 
-	namespace palindrom
-	{
-		static bool is_palindromic(std::string number)
+		static BigNumber get_factorial(const uint64_t& value)
 		{
-			for (int64_t i = 0; i < number.length() / 2; i++)
-				if (number[i] != number[number.length() - i - 1])
-					return false;
-			return true;
-		}
-	}
+			BigNumber fact(1);
 
-	namespace number
-	{
-		static std::vector<int64_t> get_digits(int64_t number)
-		{
-			std::vector<int64_t> digits;
+			for (int64_t multiplicand = 2; multiplicand <= value; multiplicand++)
+				fact = fact * multiplicand;
 
-			while (number)
-			{
-				digits.push_back(number % 10);
-				number /= 10;
-			}
-
-			return digits;
+			return fact;
 		}
 
 		static int64_t get_triangle_number(const int64_t& number)
 		{
 			return number * (number + 1) / 2;
+		}
+
+		static int64_t get_biggest_prime_divisor(int64_t num)
+		{
+			for (int64_t number = 2; number < std::sqrt(num); number++)
+				if (num % number == 0)
+					num /= number;
+
+			return num;
+		}
+
+		static int64_t get_nth_prime(const int64_t& n)
+		{
+			int64_t counter = 0;
+
+			for (int64_t num = 2;; num++)
+				if (is_prime(num) && ++counter == n)
+					return num;
+		}
+
+		static std::vector<int64_t> get_primes_bellow(const int64_t& max)
+		{
+			std::vector<int64_t> primes;
+
+			for (int64_t number = 2; number <= max; number++)
+				if (is_prime(number))
+					primes.push_back(number);
+
+			return primes;
 		}
 	}
 }

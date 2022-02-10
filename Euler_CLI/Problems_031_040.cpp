@@ -84,7 +84,7 @@ int64_t Problem_034::solve()
         int64_t f_sum = 0;
 
         for (int64_t i = 0; num > f_sum && i < s_num.length(); i++)
-            f_sum += utils::factorial::get_uint64((uint64_t) s_num[i] - '0');
+            f_sum += utils::number::get_factorial((uint64_t) s_num[i] - '0').get_value();
 
         if (num == f_sum)
             total += num;
@@ -103,7 +103,7 @@ int64_t Problem_035::solve()
 
         bool arePrime = true;
         for (int64_t i = 0; arePrime && i < s_num.length(); i++)
-            arePrime = utils::prime::is_prime(std::stoll(s_num.substr(i) + s_num.substr(0, i)));
+            arePrime = utils::number::is_prime(std::stoll(s_num.substr(i) + s_num.substr(0, i)));
 
         if (arePrime)
             counter++;
@@ -117,7 +117,7 @@ int64_t Problem_036::solve()
     int64_t sum = 0;
 
     for (int64_t num = 1; num < 1000001; num++)
-        if (utils::palindrom::is_palindromic(std::to_string(num)) && utils::palindrom::is_palindromic(utils::bin::dec_to_bin(num)))
+        if (utils::number::is_palindromic(std::to_string(num)) && utils::number::is_palindromic(utils::number::dec_to_bin(num)))
             sum += num;
 
     return sum;
@@ -129,13 +129,13 @@ int64_t Problem_037::solve()
 
     for (int64_t num = 11; counter < 11; num++)
     {
-        if (utils::prime::is_prime(num))
+        if (utils::number::is_prime(num))
         {
             std::string s_num = std::to_string(num);
             bool arePrime = true;
 
             for (int64_t i = 0; arePrime && i < s_num.length() - 1; i++)
-                arePrime = utils::prime::is_prime(std::stoll(s_num.substr(0, i + 1))) && utils::prime::is_prime(std::stoll(s_num.substr(i + 1, s_num.length() - i)));
+                arePrime = utils::number::is_prime(std::stoll(s_num.substr(0, i + 1))) && utils::number::is_prime(std::stoll(s_num.substr(i + 1, s_num.length() - i)));
 
             if (arePrime)
             {

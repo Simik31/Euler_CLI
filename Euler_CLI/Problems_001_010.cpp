@@ -34,7 +34,7 @@ int64_t Problem_002::solve()
 
 int64_t Problem_003::solve()
 {
-	return utils::prime::get_biggest_prime_divisor(600851475143);
+	return utils::number::get_biggest_prime_divisor(600851475143);
 }
 
 int64_t Problem_004::solve()
@@ -87,7 +87,7 @@ int64_t Problem_006::solve()
 
 int64_t Problem_007::solve()
 {
-	return utils::prime::get_nth(10001);
+	return utils::number::get_nth_prime(10001);
 }
 
 int64_t Problem_008::solve()
@@ -121,7 +121,7 @@ int64_t Problem_010::solve()
 {
 	int64_t prime_sum = 0;
 
-	for (int64_t prime : utils::prime::get_bellow(2000000))
+	for (int64_t prime : utils::number::get_primes_bellow(2000000))
 		prime_sum += prime;
 
 	return prime_sum;

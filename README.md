@@ -33,8 +33,6 @@ Run tests on utils namespace
     test
     t
 ```
-
-> ! No test implemented yet :/
     
 </details>
 

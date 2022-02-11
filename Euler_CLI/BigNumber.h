@@ -17,6 +17,7 @@ public:
 	BigNumber operator+(const BigNumber& to_add);
 	BigNumber operator*(const BigNumber& to_add);
 	BigNumber operator*(const uint64_t& other);
+	bool operator==(const BigNumber& other);
 
 	std::vector<uint64_t> get_buffer() const noexcept;
 	std::uint64_t get_value() const noexcept;

@@ -4,12 +4,12 @@
 #include "CmdArguments.h"
 #include "ProblemFactory.h"
 #include "Utils.h"
+#include "UtilsTests.h"
 
 void run(CmdArguments& args);
 void run_all();
 void run_id(CmdArguments& args);
 void run_problem(int problem_id, IProblem* problem);
-void test();
 
 std::string exe;
 ProblemFactory problemFactory;
@@ -27,7 +27,7 @@ int main(const int argc, const char *argv[])
     args.next(command);
 
     if (command == COMMAND_RUN_LONG || command == COMMAND_RUN_SHORT) run(args);
-    else if (command == COMMAND_TEST_LONG || command == COMMAND_TEST_SHORT) test();
+    else if (command == COMMAND_TEST_LONG || command == COMMAND_TEST_SHORT) utils_tests::test_all();
     else
     {
         utils::print::error("Command '" + command + "' not recognized.");
@@ -91,9 +91,4 @@ void run_problem(int problem_id, IProblem* problem)
     CLOCK::duration duration = CLOCK::now() - start;
 
     printf("Problem %3d | Result: %15lld | Time: %10.6fs\n", problem_id, result, utils::convert::ns_to_s(duration));
-}
-
-void test()
-{
-    std::cout << "Testing..." << std::endl;
 }

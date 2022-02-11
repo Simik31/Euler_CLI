@@ -83,6 +83,18 @@ BigNumber BigNumber::operator*(const uint64_t& other)
 	return new_number;
 }
 
+bool BigNumber::operator==(const BigNumber& other)
+{
+	if (this->buffer_pointer != other.buffer_pointer)
+		return false;
+
+	for (int64_t buffer_offset = 0; buffer_offset < this->buffer_pointer; buffer_offset++)
+		if (this->buffer[buffer_offset] != other.buffer[buffer_offset])
+			return false;
+
+	return true;
+}
+
 std::vector<uint64_t> BigNumber::get_buffer() const noexcept
 {
 	std::vector<uint64_t> buf;

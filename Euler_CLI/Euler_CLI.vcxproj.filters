@@ -65,5 +65,8 @@
     <ClInclude Include="BigNumber.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UtilsTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -57,3 +57,30 @@ int64_t Problem_042::solve()
 
     return counter;
 }
+
+int64_t Problem_043::solve()
+{
+    int64_t sum = 0, num;
+    std::vector<int64_t> digits({ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }), divisors({ 2, 3, 5, 7, 11, 13, 17 });
+
+    for (std::vector<int64_t> number : utils::vector::get_all_combinations(digits))
+    {
+        if (number[0] == 0)
+            continue;
+
+        bool allDivs = true;
+
+        for (int64_t k = 0; allDivs && k < divisors.size(); k++)
+            allDivs = (number[k + 1] * 100 + number[k + 2] * 10 + number[k + 3]) % divisors[k] == 0;
+
+        num = 0;
+
+        if (allDivs)
+            for (int64_t digit : number)
+                num = num * 10 + digit;
+
+        sum += num;
+    }
+
+    return sum;
+}

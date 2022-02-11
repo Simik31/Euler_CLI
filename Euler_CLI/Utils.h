@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <chrono>
 #include <filesystem>
 #include <fstream>
@@ -102,6 +103,18 @@ namespace utils
 		{
 			return std::find(vec.begin(), vec.end(), find) != vec.end();
 		}
+
+		template<typename T>
+		static std::vector<std::vector<T>> get_all_combinations(std::vector<T> vec)
+		{
+			std::vector<std::vector<T>> permutations;
+
+			permutations.push_back(vec);
+			while (std::next_permutation(vec.begin(), vec.end()))
+				permutations.push_back(std::vector<T>(vec));
+
+			return permutations;
+		}
 	}
 
 	namespace file
@@ -146,6 +159,19 @@ namespace utils
 
 	namespace number
 	{
+		static std::vector<int64_t> get_digits(int64_t number)
+		{
+			std::vector<int64_t> digits;
+
+			while (number)
+			{
+				digits.push_back(number % 10);
+				number /= 10;
+			}
+
+			return digits;
+		}
+
 		static bool is_palindromic(const std::string& num_str)
 		{
 			for (int64_t i = 0; i < num_str.length() / 2; i++)
@@ -170,17 +196,14 @@ namespace utils
 			return true;
 		}
 
-		static std::vector<int64_t> get_digits(int64_t number)
+		static bool is_pandigital(int64_t number, const int64_t& range_min, const int64_t& range_max)
 		{
-			std::vector<int64_t> digits;
+			std::vector<int64_t> digits = get_digits(number);
 
-			while (number)
-			{
-				digits.push_back(number % 10);
-				number /= 10;
-			}
+			for (int64_t to_find = range_min; to_find <= range_max; to_find++)
+				if (vector::contains(digits, to_find) == false) return false;
 
-			return digits;
+			return true;
 		}
 
 		static std::string dec_to_bin(uint64_t decimal)

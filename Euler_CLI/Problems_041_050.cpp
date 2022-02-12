@@ -84,3 +84,24 @@ int64_t Problem_043::solve()
 
     return sum;
 }
+
+int64_t Problem_044::solve()
+{
+    std::vector<int64_t> pentagonalNumbers;
+
+    for (int64_t n = 1000; n <= 3250; n++)
+        pentagonalNumbers.push_back(utils::number::get_pentagonal_number(n));
+
+    for (int64_t j = 0;; j++)
+    {
+        int64_t a = pentagonalNumbers[j];
+
+        for (int64_t k = j; k < pentagonalNumbers.size(); k++)
+        {
+            int64_t b = pentagonalNumbers[k];
+
+            if (utils::vector::contains(pentagonalNumbers, a + b) && utils::vector::contains(pentagonalNumbers, b - a))
+                return std::abs(b - a);
+        }
+    }
+}

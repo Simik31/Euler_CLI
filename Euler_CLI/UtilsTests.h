@@ -305,6 +305,13 @@ namespace utils_tests
 
 		{
 			{
+				__test("utils::number::get_pentagonal_number() | Test: 1/1 ");
+				utils::number::get_pentagonal_number(6) == 51 ? __pass() : __fail();
+			}
+		}
+
+		{
+			{
 				__test("utils::number::get_biggest_prime_divisor() | Test: 1/1 ");
 				utils::number::get_biggest_prime_divisor(123) == 41 ? __pass() : __fail();
 			}

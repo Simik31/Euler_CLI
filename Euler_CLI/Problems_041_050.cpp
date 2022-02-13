@@ -105,3 +105,18 @@ int64_t Problem_044::solve()
         }
     }
 }
+
+int64_t Problem_045::solve()
+{
+    std::set<int64_t> P, H;
+
+    for (int64_t add = 1;; add++) {
+        int64_t check = utils::number::get_triangle_number(285 + add);
+
+        P.insert(utils::number::get_pentagonal_number(165 + add));
+        H.insert(utils::number::get_hexagonal_number(143 + add));
+
+        if (P.contains(check) && H.contains(check))
+            return check;
+    }
+}

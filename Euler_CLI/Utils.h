@@ -246,6 +246,11 @@ namespace utils
 			return number * (3 * number - 1) / 2;
 		}
 
+		static int64_t get_hexagonal_number(const int64_t& number)
+		{
+			return number * (2 * number - 1);
+		}
+
 		static int64_t get_biggest_prime_divisor(int64_t num)
 		{
 			for (int64_t number = 2; number < std::sqrt(num); number++)

@@ -6,8 +6,10 @@ C++ 20 Standard
 ## How to run
 
 Get the code:
-```
-    git clone https://github.com/Simik31/Sudoku_CLI.git
+```pwsh
+git clone https://github.com/Simik31/Euler_CLI.git
+cd Euler_CLI
+start devenv Euler_CLI.sln
 ```
 
 Open [`Euler_CLI.sln`](Euler_CLI.sln) in [Visual Studio](https://visualstudio.microsoft.com/ "Get Visual Studio") to build and run the project.

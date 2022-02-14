@@ -27,7 +27,7 @@ int main(const int argc, const char *argv[])
     args.next(command);
 
     if (command == COMMAND_RUN_LONG || command == COMMAND_RUN_SHORT) run(args);
-    else if (command == COMMAND_TEST_LONG || command == COMMAND_TEST_SHORT) utils_tests::test_all();
+    else if (command == COMMAND_TEST_LONG || command == COMMAND_TEST_SHORT) utils_tests::test_all(exe);
     else
     {
         utils::print::error("Command '" + command + "' not recognized.");

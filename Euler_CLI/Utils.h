@@ -183,7 +183,7 @@ namespace utils
 
 		static bool is_prime(const int64_t& number)
 		{
-			if (number == 1)
+			if (number <= 1)
 				return false;
 
 			if (number == 2)
@@ -267,6 +267,17 @@ namespace utils
 			for (int64_t num = 2;; num++)
 				if (is_prime(num) && ++counter == n)
 					return num;
+		}
+
+		static std::vector<int64_t> get_primes_in_range(const int64_t& min, const int64_t& max)
+		{
+			std::vector<int64_t> primes;
+
+			for (int64_t number = min; number <= max; number++)
+				if (is_prime(number))
+					primes.push_back(number);
+
+			return primes;
 		}
 
 		static std::vector<int64_t> get_primes_bellow(const int64_t& max)

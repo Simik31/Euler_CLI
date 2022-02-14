@@ -116,19 +116,6 @@ namespace utils_tests
 		}
 	}
 
-	static void __test_print()
-	{
-		__info("utils::print");
-		
-		{
-			__test("utils::print::error() | Test: 1/1");
-			__pass();
-			utils::print::error("THIS IS TESTING ERROR MESSAGE!");
-		}
-
-		__skip("utils::print::usage()");
-	}
-
 	static void __test_string()
 	{
 		__info("utils::string");
@@ -338,20 +325,58 @@ namespace utils_tests
 				utils::number::get_primes_bellow(14) == expected ? __pass() : __fail();
 			}
 		}
+
+		{
+			{
+				__test("utils::number::get_primes_in_range() | Test: 1/2 (From 0 aka the same same expected behaviour as get_primes_bellow)");
+				std::vector<int64_t> expected({ 2, 3, 5, 7, 11, 13 });
+				utils::number::get_primes_in_range(0, 14) == expected ? __pass() : __fail();
+			}
+
+			{
+				__test("utils::number::get_primes_in_range() | Test: 3/3 (From > 0 && From = prime)");
+				std::vector<int64_t> expected({ 5, 7, 11, 13 });
+				utils::number::get_primes_in_range(5, 14) == expected ? __pass() : __fail();
+			}
+
+			{
+				__test("utils::number::get_primes_in_range() | Test: 3/3 (From > 0 && From != prime)");
+				std::vector<int64_t> expected({ 7, 11, 13 });
+				utils::number::get_primes_in_range(6, 14) == expected ? __pass() : __fail();
+			}
+		}
 	}
 
+	static void __test_print(std::string exe)
+	{
+		__info("utils::print");
+
+		{
+			__test("utils::print::error() | Test: 1/1");
+			__pass();
+			utils::print::error("THIS IS TESTING ERROR MESSAGE!");
+		}
+
+		{
+			__test("utils::print::usage() | Test: 1/1");
+			__pass();
+			utils::print::usage(exe);
+		}
+	}
+	
 	// MAIN TESTING METHOD
 
-	static void test_all()
+	static void test_all(std::string exe)
 	{
+		// utils::console not testing - user can see if it works or not
+		// utils::file    not testing - idk how withou adding another file, and I am too lazy to do that :p
 		__info("utils");
 		__test_convert();
-		// utils::console not testing - user can see if it works or not
-		__test_print();
 		__test_string();
 		__test_vector();
-		// utils::file   not testing - idk how withou adding another file, and I am too lazy to do that :p
 		__test_number();
 		__summary();
+		__info("utils::print as last, since it 'just' prints into console, and is NOT counted in stats above!");
+		__test_print(exe);
 	}
 }

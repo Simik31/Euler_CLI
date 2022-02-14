@@ -120,3 +120,35 @@ int64_t Problem_045::solve()
             return check;
     }
 }
+
+int64_t Problem_046::solve()
+{
+    std::vector<int64_t> primes;
+    primes.push_back(2);
+
+    for (int64_t num = 3;; num += 2) 
+    {
+        if (utils::number::is_prime(num))
+            continue;
+
+        std::vector<int64_t> extend = utils::number::get_primes_in_range(primes.size() - 1, num);
+        primes.insert(primes.end(), extend.begin(), extend.end());
+        bool res = true;
+
+        for (int64_t i = 0; res && i < primes.size(); i++)
+        {
+            for (int64_t m = 1; res; m++)
+            {
+                int64_t composite = primes[i] + 2 * m * m;
+
+                if (composite > num)
+                    break;
+
+                res = composite != num;
+            }
+        }
+
+        if (res)
+            return num;
+    }
+}

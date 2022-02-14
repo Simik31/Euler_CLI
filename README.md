@@ -3,14 +3,18 @@ Euler CLI (Command Line Interface) Solution
 
 C++ 20 Standard
 
-## How to run
-
-Get the code:
-```pwsh
+## Get the code:
+```git
 git clone https://github.com/Simik31/Euler_CLI.git
+```
+
+## Run the code
+```pwsh
 cd Euler_CLI
 start devenv Euler_CLI.sln
 ```
+
+OR
 
 Open [`Euler_CLI.sln`](Euler_CLI.sln) in [Visual Studio](https://visualstudio.microsoft.com/ "Get Visual Studio") to build and run the project.
 

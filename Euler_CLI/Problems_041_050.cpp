@@ -152,3 +152,13 @@ int64_t Problem_046::solve()
             return num;
     }
 }
+
+int64_t Problem_047::solve()
+{
+    for (int64_t i = 132951;; i += 3)
+        if (utils::number::get_primes_divisors(i).size() == 4)
+            if (utils::number::get_primes_divisors(i + 1).size() == 4)
+                if (utils::number::get_primes_divisors(i + 2).size() == 4)
+                    if (utils::number::get_primes_divisors(i + 3).size() == 4)
+                        return i;
+}

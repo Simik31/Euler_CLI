@@ -260,6 +260,29 @@ namespace utils
 			return num;
 		}
 
+		static std::vector<int64_t> get_primes_divisors(int64_t number)
+		{
+			std::vector<int64_t> divs;
+
+			for (int64_t num = 2; num < number; num++) 
+			{
+				if (number % num == 0)
+				{
+					if (is_prime(num))
+					{
+						divs.push_back(num);
+						number /= num;
+					}
+				}
+			}
+
+			if (vector::contains(divs, number) == false && is_prime(number))
+				divs.push_back(number);
+
+			return divs;
+		}
+
+
 		static int64_t get_nth_prime(const int64_t& n)
 		{
 			int64_t counter = 0;

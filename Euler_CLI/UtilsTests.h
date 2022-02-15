@@ -313,6 +313,20 @@ namespace utils_tests
 
 		{
 			{
+				__test("utils::number::get_primes_divisors() | Test: 1/2 (input != prime)");
+				std::vector<int64_t> expected({ 3, 23 });
+				utils::number::get_primes_divisors(69) == expected ? __pass() : __fail();
+			}
+
+			{
+				__test("utils::number::get_primes_divisors() | Test: 2/2 (input == prime)");
+				std::vector<int64_t> expected({ 71 });
+				utils::number::get_primes_divisors(71) == expected ? __pass() : __fail();
+			}
+		}
+
+		{
+			{
 				__test("utils::number::get_nth_prime() | Test: 1/1 ");
 				utils::number::get_nth_prime(13) == 41 ? __pass() : __fail();
 			}

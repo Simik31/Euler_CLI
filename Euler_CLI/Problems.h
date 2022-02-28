@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 
+#include "vendor/bigint/BigIntegerLibrary.hh"
+
 #include "Definitions.h"
 
 struct IProblem { virtual int64_t solve() = 0; };
@@ -53,3 +55,4 @@ class Problem_044 : public IProblem { public: int64_t solve(); };
 class Problem_045 : public IProblem { public: int64_t solve(); };
 class Problem_046 : public IProblem { public: int64_t solve(); };
 class Problem_047 : public IProblem { public: int64_t solve(); };
+class Problem_048 : public IProblem { public: int64_t solve(); };

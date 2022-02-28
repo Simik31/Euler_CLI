@@ -84,7 +84,7 @@ int64_t Problem_034::solve()
         int64_t f_sum = 0;
 
         for (int64_t i = 0; num > f_sum && i < s_num.length(); i++)
-            f_sum += utils::number::get_factorial((uint64_t) s_num[i] - '0').get_value();
+            f_sum += utils::number::get_factorial((uint64_t) s_num[i] - '0').toUnsignedLong();
 
         if (num == f_sum)
             total += num;

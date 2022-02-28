@@ -8,7 +8,8 @@
 #include <stack>
 #include <Windows.h>
 
-#include "BigNumber.h"
+#include "vendor/bigint/BigIntegerLibrary.hh"
+
 #include "Definitions.h"
 #include "Problems.h"
 
@@ -226,12 +227,12 @@ namespace utils
 			return result;
 		}
 
-		static BigNumber get_factorial(const uint64_t& value)
+		static BigInteger get_factorial(const uint64_t& value)
 		{
-			BigNumber fact(1);
+			BigInteger fact = 1;
 
-			for (int64_t multiplicand = 2; multiplicand <= value; multiplicand++)
-				fact = fact * multiplicand;
+			for (unsigned long multiplicand = 2; multiplicand <= value; multiplicand++)
+				fact *= BigInteger(multiplicand);
 
 			return fact;
 		}
@@ -312,6 +313,55 @@ namespace utils
 					primes.push_back(number);
 
 			return primes;
+		}
+	}
+
+	namespace bigint
+	{
+		static inline const std::vector<int> get_digits(const BigInteger& big_int) noexcept
+		{
+			std::vector<int> digits;
+
+			BigInteger modint = 1, ten = 10;
+
+			while (big_int / modint > BigInteger::zero)
+			{
+				digits.insert(digits.begin(), 1, ((big_int % (modint * ten)) / modint).toInt());
+				modint *= ten;
+			}
+
+			return digits;
+		}
+
+		static inline const std::vector<int> get_first_n_digits(const BigInteger& big_int, const int& n) noexcept
+		{
+			std::vector<int> digits = get_digits(big_int);
+			return std::vector<int>(digits.begin(), digits.begin() + n);
+		}
+
+		static inline const std::vector<int> get_last_n_digits(const BigInteger& big_int, const int& n) noexcept
+		{
+			std::vector<int> digits = get_digits(big_int);
+			return std::vector<int>(digits.end() - n, digits.end());
+		}
+
+		static inline const BigInteger pow(const int& base, const uint64_t& power) noexcept
+		{
+			if (power == 0) return BigInteger(1);
+
+			BigInteger original(base), new_number(base);
+
+			for (uint64_t p = 1; p < power; p++)
+				new_number *= original;
+
+			return new_number;
+		}
+
+		static inline const int get_length(const BigInteger& big_int) noexcept
+		{
+			int len = 0;
+			for (BigInteger modint = 1, ten = 10; big_int / modint > BigInteger::zero; len++, modint *= ten) {}
+			return len;
 		}
 	}
 }

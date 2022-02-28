@@ -162,3 +162,17 @@ int64_t Problem_047::solve()
                     if (utils::number::get_primes_divisors(i + 3).size() == 4)
                         return i;
 }
+
+int64_t Problem_048::solve()
+{
+    BigInteger num = 0;
+
+    for (int i = 1; i <= 1000; i++)
+        num += utils::bigint::pow(i, i);
+
+    int64_t result = 0;
+    for (int digit : utils::bigint::get_last_n_digits(num, 10))
+        result = result * 10 + digit;
+
+    return result;
+}

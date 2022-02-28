@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 
-#include "BigNumber.h"
 #include "Problems.h"
 #include "Utils.h"
 
@@ -134,18 +133,30 @@ int64_t Problem_024::solve()
 
 int64_t Problem_025::solve()
 {
-    BigNumber first, second(1), new_num;
-    
-    for (int64_t index = 2; ; index++) 
+    uint64_t index = 2, next_check = 100;
+    std::vector<BigInteger> series = { 1, 1 };
+
+    for (; ; index++)
     {
-        new_num = first + second;
-    
-        if (new_num.get_buffer_pointer() == 1000)
-            return index;
-    
-        first = second;
-        second = new_num;
+        series.push_back(series[index - 1] + series[index - 2]);
+
+        if (index == next_check)
+        {
+            if (utils::bigint::get_length(series[index]) >= 1000)
+                break;
+
+            next_check += 100;
+        }
+
     }
+
+    for (; ; index -= 10)
+        if (utils::bigint::get_length(series[index]) < 1000)
+            break;
+
+    for (; ; index++)
+        if (utils::bigint::get_length(series[index]) == 1000)
+            return index + 1;
 }
 
 int64_t Problem_026::solve()

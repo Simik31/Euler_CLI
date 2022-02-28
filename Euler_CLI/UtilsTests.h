@@ -1,7 +1,5 @@
 #pragma once
 
-#include <assert.h>
-
 #include "Definitions.h"
 #include "Utils.h"
 
@@ -279,7 +277,7 @@ namespace utils_tests
 		{
 			{
 				__test("utils::number::get_factorial() | Test: 1/1 ");
-				utils::number::get_factorial(6) == BigNumber(720) ? __pass() : __fail();
+				utils::number::get_factorial(6) == BigInteger(720) ? __pass() : __fail();
 			}
 		}
 

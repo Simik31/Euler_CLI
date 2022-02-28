@@ -19,6 +19,18 @@
     <Filter Include="Source Files\Problems\Problems_001_100">
       <UniqueIdentifier>{c8e83abc-8ec8-4a5b-8e32-71f47611cd02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\vendor">
+      <UniqueIdentifier>{05629baf-04dd-40e5-8322-d637c1c91de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\vendor\bigint">
+      <UniqueIdentifier>{e3eca96b-8d6d-4b77-b9cb-b4814dd4fc37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vendor">
+      <UniqueIdentifier>{22c2d0b2-d246-43be-ad9f-b0cb01d95153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vendor\bigint">
+      <UniqueIdentifier>{4d494e8b-9316-420f-a21e-9f7b9339ab3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Euler_CLI.cpp">
@@ -36,14 +48,26 @@
     <ClCompile Include="Problems_021_030.cpp">
       <Filter>Source Files\Problems\Problems_001_100</Filter>
     </ClCompile>
-    <ClCompile Include="BigNumber.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Problems_031_040.cpp">
       <Filter>Source Files\Problems\Problems_001_100</Filter>
     </ClCompile>
     <ClCompile Include="Problems_041_050.cpp">
       <Filter>Source Files\Problems\Problems_001_100</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\bigint\BigInteger.cc">
+      <Filter>Source Files\vendor\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\bigint\BigIntegerAlgorithms.cc">
+      <Filter>Source Files\vendor\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\bigint\BigIntegerUtils.cc">
+      <Filter>Source Files\vendor\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\bigint\BigUnsigned.cc">
+      <Filter>Source Files\vendor\bigint</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\bigint\BigUnsignedInABase.cc">
+      <Filter>Source Files\vendor\bigint</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,11 +86,29 @@
     <ClInclude Include="Problems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BigNumber.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UtilsTests.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\BigInteger.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\BigIntegerAlgorithms.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\BigIntegerLibrary.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\BigIntegerUtils.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\BigUnsigned.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\BigUnsignedInABase.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\bigint\NumberlikeArray.hh">
+      <Filter>Header Files\vendor\bigint</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

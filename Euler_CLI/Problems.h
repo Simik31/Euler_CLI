@@ -56,3 +56,4 @@ class Problem_045 : public IProblem { public: int64_t solve(); };
 class Problem_046 : public IProblem { public: int64_t solve(); };
 class Problem_047 : public IProblem { public: int64_t solve(); };
 class Problem_048 : public IProblem { public: int64_t solve(); };
+class Problem_049 : public IProblem { public: int64_t solve(); };

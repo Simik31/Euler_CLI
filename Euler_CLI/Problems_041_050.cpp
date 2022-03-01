@@ -176,3 +176,59 @@ int64_t Problem_048::solve()
 
     return result;
 }
+
+int64_t Problem_049::solve()
+{
+    std::vector<int64_t> digits[3];
+
+    for (uint64_t num_1 = 1488;; num_1++)
+    {
+        std::set<int> seen;
+
+        if (utils::number::is_prime(num_1) == false)
+            continue;
+
+        for (int digit : (digits[0] = utils::number::get_digits(num_1)))
+            seen.insert(digit);
+
+        uint64_t num_2 = num_1 + 3330;
+
+        if (utils::number::is_prime(num_2) == false)
+            continue;
+
+        bool allOK_2 = true;
+
+        for (int digit : (digits[1] = utils::number::get_digits(num_2)))
+            if (!seen.contains(digit))
+                allOK_2 = false;
+
+        if (allOK_2 == false)
+            continue;
+
+        uint64_t num_3 = num_2 + 3330;
+
+        if (utils::number::is_prime(num_3) == false)
+            continue;
+
+        bool allOK_3 = true;
+
+        for (int digit : (digits[2] = utils::number::get_digits(num_3)))
+            if (!seen.contains(digit))
+                allOK_3 = false;
+
+        if (allOK_3)
+            break;
+    }
+
+    int64_t result = 0;
+
+    for (int i = 0; i < 3; i++)
+    {
+        std::reverse(digits[i].begin(), digits[i].end());
+
+        for (int digit : digits[i])
+            result = result * 10 + digit;
+    }
+
+    return result;
+}
